@@ -1,0 +1,30 @@
+# command line: main.py demo -c config/sl/demo.yaml --openpose openpose/build --video images/pose_9597.mp4 --device 0
+
+config: config/sl/demo.yaml
+device:
+- 0
+height: 1080
+ignore_weights: []
+model: net.st_gcn.Model
+model_args:
+    edge_importance_weighting: true
+    graph_args:
+        custom_layout:
+            center: 0
+            edge: (0, 1), (1, 2), (2, 16), (0, 3), (3, 4), (4, 5), (5, 6), (6, 7),
+                (5, 8), (8, 9), (5, 10), (10, 11), (5, 12), (12, 13), (5, 14), (14,
+                15), (16, 17), (17, 18), (16, 19), (19, 20), (16, 21), (21, 22), (16,
+                23), (23, 24), (16, 25), (25, 26)
+            num_node: 27
+        layout: custom
+        strategy: spatial
+    in_channels: 3
+    num_class: 2745
+openpose: openpose/build
+output_dir: ./data/demo_result
+print_log: false
+save_log: true
+use_gpu: true
+video: images/pose_9597.mp4
+weights: /content/drive/My Drive/st-gcn-sl/st-gcn/epoch1350_model.pt
+work_dir: ./work_dir/tmp
